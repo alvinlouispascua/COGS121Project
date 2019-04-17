@@ -5,4 +5,13 @@
 ## Alvin Pascua
 ## Marc Raphael
 
-#Pitch
+##Pitch
+This is where the pitch will go.
+
+Storyboard 1
+
+Storyboard 2
+
+Prototype 1
+
+Prototype 2
