@@ -11,8 +11,10 @@ A possible API that we might use is the Google Maps API in order to help navigat
 
 ## Storyboard 1
 ![Storyboard 1](images/20190422_152234.jpg)
+![Storyboard 1](New Doc 2019-04-22 15.45.45_1.jpg)
 
 ## Storyboard 2
+![Storyboard 2](New Doc 2019-04-22 15.45.45_2.jpg)
 
 ## Prototype 1
 
