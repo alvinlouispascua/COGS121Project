@@ -10,6 +10,7 @@ Our app's target user population are homeless people in San Diego (city). None o
 A possible API that we might use is the Google Maps API in order to help navigate homeless people to different locations that are preferably walking distance from useful resources. We could also potentially use the Google Places API to get up-to-date information about the different homeless shelters, food banks, healthcare centers, and general resources. 
 
 ## Storyboard 1
+![Storyboard 1](images/20190422_152234.jpg)
 
 ## Storyboard 2
 
