@@ -15,5 +15,6 @@ A possible API that we might use is the Google Maps API in order to help navigat
 
 ## Prototype 1
 ![Prototype 1](images/Prototype%201%20page%201.jpg)
-
+![Prototype 1](images/Prototype%201%20page2.jpg)
+![Prototype 1](images/Prototype%201%20page3.jpg)
 ## Prototype 2
