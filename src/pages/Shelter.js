@@ -56,6 +56,10 @@ const rows = []
     });
 
 
+  function handleClickDescription(addr) {
+    return;
+  };
+
 function SimpleTable(props) {
   const { classes } = props;
 
