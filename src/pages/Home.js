@@ -128,14 +128,12 @@ const tiers = [
     link: '/Health',
   },
   {
-    title: 'More Resources!',
+    title: 'Food Banks',
     description: [
-      'Food-Stamp Application',
-      'Donated Clothing',
-      'Educational Services',
-      'Community Chat & Counseling',
+      'Find the food banks that',
+      'are nearest to you!'
     ],
-    buttonText: 'Display Full List',
+    buttonText: 'Find Food Banks',
     buttonVariant: 'contained',
     link: '/Food',
   },
@@ -150,7 +148,7 @@ function Pricing(props) {
       <AppBar position="static" color="primary" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            Resource Maps 
+            
           </Typography>
           <Button color="primary" variant="outlined">
             Login
@@ -161,7 +159,7 @@ function Pricing(props) {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            Find What You Need!
+            Homeless in San Diego
           </Typography>
           <Typography variant="h6" align="center" color="textSecondary" component="p">
             Find resources to help you get back on your feet. 
