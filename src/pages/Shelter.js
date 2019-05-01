@@ -22,17 +22,17 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, address, hours, distance, rating) {
   id += 1;
-  return { id, name, calories, fat, carbs, protein };
+  return { id, name, address, hours, distance, rating };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Salvation Army', '714 Rosarito Street', '8:00 AM to 5:00PM', '5 minutes walking', 4.0),
+  createData("Father Joe's Villages", '432 Linden Ave', '10:00 AM to 8:00PM', '6 minutes walking', 4.3),
+  createData('San Diego Rescue Mission', '14th and Commercial Street', '9:00 AM to 5:00PM', '8 minutes walking', 4.2),
+  createData('Temporary Bridge Shelter', '16th Street and Newton Avenue', '5:00 AM to 5:00PM', '9 minutes walking', 4.5),
+  createData('Connections Housing Downtown', '2801 ½ Sports Arena Boulevard', '6:00 AM to 7:00PM', '12 minutes walking', 3.9),
 ];
 
 function SimpleTable(props) {
@@ -43,11 +43,11 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat (g)</TableCell>
-            <TableCell align="right">Carbs (g)</TableCell>
-            <TableCell align="right">Protein (g)</TableCell>
+            <TableCell>Shelter Name</TableCell>
+            <TableCell align="right">Address</TableCell>
+            <TableCell align="right">Hours Open</TableCell>
+            <TableCell align="right">Distance from you</TableCell>
+            <TableCell align="right">Rating</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -56,10 +56,10 @@ function SimpleTable(props) {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.address}</TableCell>
+              <TableCell align="right">{row.hours}</TableCell>
+              <TableCell align="right">{row.distance}</TableCell>
+              <TableCell align="right">{row.rating}</TableCell>
             </TableRow>
           ))}
         </TableBody>

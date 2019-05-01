@@ -121,7 +121,7 @@ const styles = theme => ({
 const tiers = [
   {
     title: 'Shelters',
-    description: ['Fight the Elements', 'Find the Nearest Shelters'],
+    description: ['Fight the elements', 'Find the nearest shelters'],
     buttonText: 'Find Shelters',
     buttonVariant: 'contained',
     link: '/Shelter',
@@ -129,7 +129,7 @@ const tiers = [
   {
     title: 'Healthcare',
     description: [
-      'Find Top-Notch Doctors and', 'get Patched-Up TODAY!'
+      'Find top-notch doctors and', 'get patched-up today!'
     ],
     buttonText: 'Find Physicians',
     buttonVariant: 'contained',
@@ -172,8 +172,7 @@ function Pricing(props) {
             Find What You Need!
           </Typography>
           <Typography variant="h6" align="center" color="textSecondary" component="p">
-            Quickly build an effective pricing table for your potential customers with this layout.
-            It&apos;s built with default Material-UI components with little customization.
+            Find resources to help you get back on your feet. 
           </Typography>
         </div>
         {/* End hero unit */}
