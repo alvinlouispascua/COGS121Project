@@ -14,9 +14,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.grid-container{
+  min-height: 100vh;
+  display: grid;
+  background-color: #282c34;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .App-link {

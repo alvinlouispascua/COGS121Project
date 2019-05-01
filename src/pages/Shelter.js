@@ -3,6 +3,7 @@ import { Link, withRouter, NavLink} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import GoogleMaps from "../components/GoogleMaps.js";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -60,6 +61,7 @@ function SimpleTable(props) {
 
   return (
     <Paper className={classes.root}>
+    <GoogleMaps/>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
@@ -91,7 +93,8 @@ function SimpleTable(props) {
       >
        Back
       </Button>
-      </Link> 
+      </Link>
+       
     </Paper>
   );
 }
