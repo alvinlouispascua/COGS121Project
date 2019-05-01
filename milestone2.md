@@ -5,7 +5,7 @@ Our idea is similar to what we proposed in Milestone 1 because our user populati
 
 ### Screenshots of all our UI skeleton webpages.
 
-### Home 1
+### Home Screen
 ![Home 1](images/Screen1.png)
 
 ### Second Screen
