@@ -107,7 +107,7 @@ function Food() {
       </ListItem>
     </List>
     </MuiThemeProvider>
-        </div>
+      </div>
       </header>
       
       <GoogleMaps className="grid-item"/>
