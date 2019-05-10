@@ -21,23 +21,29 @@ const  theme =createMuiTheme({
 
 function Health() {
   return (
-    <div className="Health">
+    <div className="grid-container">
       <header className="grid-item">
         <div className="App-header">
           <div>
-          Health
-        
           <Link to="/">
-	         <Button
-	         variant="contained"
-	         color="primary"  
-	         >
+           <Button
+           variant="contained"
+           color="primary"  
+           >
 
-	         Back
-	         </Button>
+           Back
+           </Button>
 
         </Link>
-        </div> 
+
+
+          </div>
+
+
+          <div>
+          Health
+        
+                  </div> 
       
       <MuiThemeProvider theme = {theme}>
 
