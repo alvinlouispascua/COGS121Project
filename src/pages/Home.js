@@ -73,6 +73,10 @@ import StarIcon from '@material-ui/icons/StarBorder';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import IconShelter from './IconShelter.png';
+import IconHealthcare from './IconHealthcare.png';
+import IconFood from './IconFood.png';
+
 
 const styles = theme => ({
   '@global': {
@@ -137,7 +141,7 @@ const tiers = [
     title: 'Shelters',
     description: ['Fight the elements, find the nearest shelters'],
     link:'/Shelter',
-    icon:'/src/pages/shelter.png'
+    icon: IconShelter
   },
 
   {
@@ -146,7 +150,7 @@ const tiers = [
       'Find top-notch doctors and get patched-up today!'
     ],
     link:'/Health',
-    icon:'/src/pages/healthcare.png'
+    icon: IconHealthcare
 
   },
   {
@@ -155,7 +159,7 @@ const tiers = [
       'Find the food banks that are nearest to you!'
     ],
     link: '/Food',
-    icon:'/src/pages/food.png'
+    icon: IconFood
   },
 ];
 
@@ -176,9 +180,9 @@ function Pricing(props) {
           </Typography>
         </div>
         {/* End hero unit */}
-        <Grid container className={classes.root} justify="center" alignItems="flex-start" spacing={16}>
+        <Grid container className={classes.root} justify="center" alignItems="flex-start" spacing={24}>
           {tiers.map(tier => (
-            <Grid item key={tier.title} xs={12} md={4}>
+            <Grid item key={tier.title} xs={12} md='auto'>
               <Card className={classes.card}>
                 <ButtonBase className={props.classes.cardAction}>
 
@@ -191,8 +195,7 @@ function Pricing(props) {
                 />
                 <CardMedia 
                 image={tier.icon}
-                title="lorem ipsum"
-                style={{height: 0, paddingTop: '56.25%'}}
+                style={{height: 90, width: 90, margin: 'auto'}}
                 />
                 <CardContent>
                   {tier.description.map(line => (
