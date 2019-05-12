@@ -44,6 +44,17 @@ class Home extends React.Component{
 export default Home;
 */
 
+      /*<AppBar position="static" color="primary" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+          </Typography>
+          <Button color="primary" variant="outlined">
+            Login
+          </Button>
+        </Toolbar>
+      </AppBar>
+      */
+
 import React from 'react';
 import { Link, withRouter, NavLink} from "react-router-dom";
 import classNames from 'classnames';
@@ -55,6 +66,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import CardMedia from '@material-ui/core/CardMedia';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -64,14 +77,23 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: theme.palette.grey[200],
     },
   },
-  appBar: {
-    position: 'relative',
+  root: {
+    flexGrow: 1,
   },
   toolbarTitle: {
     flex: 1,
+  },
+  card: {
+    width: 220,
+    height: 260,
+  },
+    cardAction: {
+    textAlign: 'initial',
+    width: '100%',
+    height: '100%',
   },
   layout: {
     width: 'auto',
@@ -89,13 +111,13 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
   cardHeader: {
-    backgroundColor: theme.palette.grey[200],
+    backgroundColor: theme.palette.white,
   },
   cardPricing: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'baseline',
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit,
   },
   cardActions: {
     [theme.breakpoints.up('sm')]: {
@@ -113,29 +135,27 @@ const styles = theme => ({
 const tiers = [
   {
     title: 'Shelters',
-    description: ['Fight the elements', 'Find the nearest shelters'],
-    buttonText: 'Find Shelters',
-    buttonVariant: 'contained',
-    link: '/Shelter',
+    description: ['Fight the elements, find the nearest shelters'],
+    link:'/Shelter',
+    icon:'/src/pages/shelter.png'
   },
+
   {
     title: 'Healthcare',
     description: [
-      'Find top-notch doctors and', 'get patched-up today!'
+      'Find top-notch doctors and get patched-up today!'
     ],
-    buttonText: 'Find Physicians',
-    buttonVariant: 'contained',
-    link: '/Health',
+    link:'/Health',
+    icon:'/src/pages/healthcare.png'
+
   },
   {
     title: 'Food Banks',
     description: [
-      'Find the food banks that',
-      'are nearest to you!'
+      'Find the food banks that are nearest to you!'
     ],
-    buttonText: 'Find Food Banks',
-    buttonVariant: 'contained',
     link: '/Food',
+    icon:'/src/pages/food.png'
   },
 ];
 
@@ -145,16 +165,6 @@ function Pricing(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" color="primary" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            
-          </Typography>
-          <Button color="primary" variant="outlined">
-            Login
-          </Button>
-        </Toolbar>
-      </AppBar>
       <main className={classes.layout}>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -166,37 +176,41 @@ function Pricing(props) {
           </Typography>
         </div>
         {/* End hero unit */}
-        <Grid container spacing={40} alignItems="flex-end">
+        <Grid container className={classes.root} justify="center" alignItems="flex-start" spacing={16}>
           {tiers.map(tier => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'More Resources!' ? 12 : 6} md={4}>
-              <Card>
+            <Grid item key={tier.title} xs={12} md={4}>
+              <Card className={classes.card}>
+                <ButtonBase className={props.classes.cardAction}>
+
+          <Link to={tier.link} style={{ textDecoration: 'none' }}>
                 <CardHeader
                   title={tier.title}
                   titleTypographyProps={{ align: 'center' }}
                   subheaderTypographyProps={{ align: 'center' }}
                   className={classes.cardHeader}
                 />
+                <CardMedia 
+                image={tier.icon}
+                title="lorem ipsum"
+                style={{height: 0, paddingTop: '56.25%'}}
+                />
                 <CardContent>
                   {tier.description.map(line => (
-                    <Typography variant="subtitle1" align="center" key={line}>
+                    <Typography variant="subtitle1" align="left" key={line}>
                       {line}
                     </Typography>
                   ))}
                 </CardContent>
                 <CardActions className={classes.cardActions}>
-                    <Link to={tier.link}>
-                      <Button fullWidth variant={tier.buttonVariant} color="primary">
-                        {tier.buttonText}
-                      </Button>
-                    </Link>
                 </CardActions>
+                </Link>
+                </ButtonBase>
               </Card>
             </Grid>
           ))}
         </Grid>
       </main>
- 
+
       {/* Footer */}
       {/* End footer */}
 
