@@ -23,12 +23,6 @@ const styles = theme => ({
   },
 });
 
-let id = 0;
-function createData(name, address, hours, distance, rating) {
-  id += 1;
-  return { id, name, address, hours, distance, rating };
-}
-
   const database = firebase.database();
 
   database.ref('shelters/SalvationArmy').set({id: 1, name: 'Salvation Army', address: '714 Rosarito Street', hours: '8:00 AM to 5:00PM', distance: '5 minutes walking', rating: 4.0});
@@ -39,11 +33,12 @@ function createData(name, address, hours, distance, rating) {
 
 const rows = []
 
+
   database.ref('shelters/SalvationArmy').once('value', (snapshot) => {
       rows[0] = snapshot.val();
     });
     database.ref('shelters/FatherJoesVillages').once('value', (snapshot) => {
-      rows[1] = snapshot.val();
+      rows[1] = snapshot.val(); 
     });
       database.ref('shelters/SDRescueMission').once('value', (snapshot) => {
       rows[2] = snapshot.val();
@@ -55,6 +50,7 @@ const rows = []
       rows[4] = snapshot.val();
     });
 
+ 
 
 function SimpleTable(props) {
   const { classes } = props;
@@ -89,7 +85,7 @@ function SimpleTable(props) {
       <Link to="/">
       <Button
         variant="contained"
-        color="primary"  
+        color="gray"  
       >
        Back
       </Button>
