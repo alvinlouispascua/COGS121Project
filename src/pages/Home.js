@@ -81,7 +81,7 @@ import IconFood from './IconFood.png';
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.grey[200],
+      backgroundColor: theme.palette.grey[300],
     },
   },
   root: {
@@ -92,7 +92,6 @@ const styles = theme => ({
   },
   card: {
     width: 220,
-    height: 260,
   },
     cardAction: {
     textAlign: 'initial',
@@ -139,7 +138,7 @@ const styles = theme => ({
 const tiers = [
   {
     title: 'Shelters',
-    description: ['Fight the elements, find the nearest shelters'],
+    description: ['Fight the elements and find the nearest shelters!'],
     link:'/Shelter',
     icon: IconShelter
   },
@@ -147,7 +146,7 @@ const tiers = [
   {
     title: 'Healthcare',
     description: [
-      'Find top-notch doctors and get patched-up today!'
+      'Get patched-up today at excellent clinics!'
     ],
     link:'/Health',
     icon: IconHealthcare
