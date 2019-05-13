@@ -81,7 +81,7 @@ import IconFood from './IconFood.png';
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.grey[300],
+      backgroundColor: '#eaeaf7',
     },
   },
   root: {
@@ -203,8 +203,6 @@ function Pricing(props) {
                     </Typography>
                   ))}
                 </CardContent>
-                <CardActions className={classes.cardActions}>
-                </CardActions>
                 </Link>
                 </ButtonBase>
               </Card>
