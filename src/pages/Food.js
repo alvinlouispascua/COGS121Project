@@ -45,16 +45,16 @@ function Food() {
         <ListItemText
           primary=
             {<Typography variant="h6" color="primary" >
-              Food Bank #1
+              San Diego Food Bank
             </Typography>}
 
           secondary={
             <React.Fragment>
               <Typography component="span"  color="primary" >
-              Hours: 8:00am - 3:00pm
+              Hours: 8:00am - 12:00pm, 1:00-5:00pm
               </Typography>
               <Typography  color="primary" >
-              Address: 123 FreeFood Rd   San Diego, CA
+              Address: 9850 Distribution Ave, San Diego, CA 92121
               </Typography>
 
               <Typography  color="primary" >
@@ -63,22 +63,23 @@ function Food() {
             
             </React.Fragment>
           }
+
         />
       </ListItem>
       <ListItem disableGutters button alignItems="flex-start" >
         <ListItemText
           primary=
             {<Typography variant="h6" color="primary" >
-              Food Bank #2
+              San Diego Rescue Mission: Emergency Food
             </Typography>}
 
           secondary={
             <React.Fragment>
               <Typography component="span"  color="primary" >
-              hours: 8:00am - 3:00pm
+              Hours: 9:30am - 5:30pm
               </Typography>
               <Typography  color="primary" >
-              address: 
+              Address: 120 Elm Street, San Diego, CA 92104
               </Typography>
             
             </React.Fragment>
@@ -89,16 +90,16 @@ function Food() {
         <ListItemText
           primary=
             {<Typography variant="h6" color="primary" >
-              Food Bank #3
+              Ocean Beach Emergency Food
             </Typography>}
 
           secondary={
             <React.Fragment>
               <Typography component="span"  color="primary" >
-              hours: 8:00am - 3:00pm
+              hours: 9:30am - 11:30am (Mon, Wed, Fri only)
               </Typography>
               <Typography  color="primary" >
-              address: 
+              Address: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
               </Typography>
             
             </React.Fragment>
