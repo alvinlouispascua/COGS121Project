@@ -117,7 +117,7 @@ function Health() {
               </Typography>
 
               <Typography  color="primary" >
-              Available Physicians: Getwell PH.D
+              Available Physicians: Getsoon PH.D
               </Typography>
             
             
