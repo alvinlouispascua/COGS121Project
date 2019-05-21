@@ -53,12 +53,12 @@ class Food extends React.Component {
 
   render(){
     return (
-      <div className="grid-container">
+      <div>
+      <div style = {{width: '20vw', float:'left', display:'inline'}}>
 
-        <header className="grid-item">
-          <div className="App-header">
+        <header>
+          <div>
             <div>
-            Food 
             
 
             <Link to="/">
@@ -72,7 +72,7 @@ class Food extends React.Component {
             </Link> 
             </div>
         <List disablePadding>
-        <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo")}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -97,7 +97,7 @@ class Food extends React.Component {
 
           />
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM")}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -116,7 +116,7 @@ class Food extends React.Component {
             }
           />
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM")}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -184,8 +184,12 @@ class Food extends React.Component {
 
         </div>
         </header>
-        <GoogleMaps className="grid-item"/>
-      </div>
+        </div>
+        <div>
+        <GoogleMaps />
+        </div>
+        </div>
+
     );
   }
 }
