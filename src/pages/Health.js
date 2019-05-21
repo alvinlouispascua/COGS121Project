@@ -57,7 +57,7 @@ function Health() {
           secondary={
             <React.Fragment>
               <Typography component="span"  color="primary" >
-              Hours: 8:30am - 11:45am
+              Hours: 8:30am - 11:45am; 12:30pm - 4:45pm
               </Typography>
               <Typography  color="primary" >
               1501 Imperial Ave, San Diego, CA 92101
@@ -71,8 +71,86 @@ function Health() {
             </React.Fragment>
           }
         />
-
       </ListItem>
+
+        <ListItem disableGutters button alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6" color="primary" >
+              Family Health Centers of San Diego
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span"  color="primary" >
+              Hours: 8:00am - 5:00pm
+              </Typography>
+              <Typography  color="primary" >
+              823 Gateway Center Way, San Diego, CA 92102
+              </Typography>
+
+              <Typography  color="primary" >
+              Available Physicians: Getwell PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6" color="primary" >
+              VA San Diego Health System
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span"  color="primary" >
+              Hours: 24 Hours
+              </Typography>
+              <Typography  color="primary" >
+              3350 La Jolla Village Dr, San Diego, CA 92161
+              </Typography>
+
+              <Typography  color="primary" >
+              Available Physicians: Getsoon PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6" color="primary" >
+              PATH
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span"  color="primary" >
+              Hours: 8:00am - 4:00pm
+              </Typography>
+              <Typography  color="primary" >
+              1250 Sixth Ave, San Diego, CA 92101
+              </Typography>
+
+              <Typography  color="primary" >
+              Available Physicians: Getbetter PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
     </List>
     </MuiThemeProvider>
         </div>
