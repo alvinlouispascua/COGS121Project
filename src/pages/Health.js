@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import white from '@material-ui/core/colors/blue';
 
-
 const  theme =createMuiTheme({
   palette: {
     primary: { main: '#fafafa' },
