@@ -16,6 +16,11 @@ const AnyReactComponent = ({ text }) => <div style={{
 												    transform: 'translate(-50%, -50%)'
 												  }}>{text}</div>;
 
+const handleApiLoaded = (map, maps) => {
+  // use map and maps objects
+};
+
+
 class GoogleMaps extends Component {
   static defaultProps = {
     center: {
@@ -30,11 +35,13 @@ class GoogleMaps extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '50vh', width: '100%' }}>
+      <div style={{ float:'left', display:'inline', height: '100vh', width: '75vw' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: ""}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
         <AnyReactComponent
             lat={32.75}

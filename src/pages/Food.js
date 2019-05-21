@@ -6,6 +6,12 @@ import GoogleMaps from "../components/GoogleMaps.js";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -13,6 +19,28 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import white from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#ff4400',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      light: '#0066ff',
+      main: '#0044ff',
+      // dark: will be calculated from palette.secondary.main,
+      contrastText: '#ffcc00',
+    },
+    // error: will use the default color
+  },
+});
 
 
 const styles = theme => ({
@@ -20,8 +48,31 @@ const styles = theme => ({
     body: {
       backgroundColor: '#eaeaf7',
     },
+    root: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.paper,
+      colorPrimary: '#eaeaf7'
+    },
+    tabRoot:{
+      width: 10,
+    }
   }
 });
+
+const style = {
+ tab: {
+  width: 140
+ }
+}
+
+function TabContainer(props) {
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {props.children}
+    </Typography>
+  );
+}
+
 
 const url = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA-oa94sKrXg7yHqedmRh3yzs5sNDXd-7U&placeid="
 const proxy = "https://cors-anywhere.herokuapp.com/"
@@ -30,7 +81,12 @@ class Food extends React.Component {
     data: {},
     open: false,
     gotData:false,
+    value: 0,
   };
+
+  handleChange = (event, value) => {
+    this.setState({ value });
+};
 
   handleClick = id =>{
     console.log(proxy+url+id)
@@ -52,25 +108,25 @@ class Food extends React.Component {
 
 
   render(){
+    const { classes } = this.props;
+    const { value } = this.state;
+
     return (
       <div>
-      <div style = {{width: '20vw', float:'left', display:'inline'}}>
-
-        <header>
-          <div>
-            <div>
+            <div className={classes.root} style={{float:'left', display:'inline'}}>
+        <AppBar color="primary" position="static" style={{width:420}}>
+          <Tabs value={value} onChange={this.handleChange} >
+            <Tab label="Shelters" style={{ minWidth: 140 }}/>
+            <Tab label="Healthcare" style={{ minWidth: 140 }}/>
+            <Tab label="Food Banks" style={{ minWidth: 140 }}/>
+          </Tabs>
+        </AppBar>
+        {value === 0 && <TabContainer>Shelters</TabContainer>}
+        {value === 1 && <TabContainer>Healthcare</TabContainer>}
+        {value === 2 && <TabContainer>
             
+        <div style = {{width: '20vw'}}>
 
-            <Link to="/">
-            <Button
-              variant="contained"
-              color="primary"  
-            >
-             Back
-            </Button>
-
-            </Link> 
-            </div>
         <List disablePadding>
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo")}>
           <ListItemText
@@ -78,7 +134,6 @@ class Food extends React.Component {
               {<Typography variant="h6">
                 San Diego Food Bank
               </Typography>}
-  //
             secondary={
               <React.Fragment>
                 <Typography component="span"  >
@@ -96,6 +151,12 @@ class Food extends React.Component {
             }
 
           />
+
+          <ListItemSecondaryAction style={{top:21}}>
+            <IconButton aria-label="Info">
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM")}>
           <ListItemText
@@ -115,6 +176,11 @@ class Food extends React.Component {
               </React.Fragment>
             }
           />
+          <ListItemSecondaryAction style={{top:21}}>
+            <IconButton aria-label="Info">
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM")}>
           <ListItemText
@@ -134,8 +200,32 @@ class Food extends React.Component {
               </React.Fragment>
             }
           />
+                    <ListItemSecondaryAction style={{top:21}}>
+            <IconButton aria-label="Info">
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
       </List>
+
+      <div style={{paddingTop: 100, paddingLeft:20}}>
+            
+
+            <Link to="/">
+            <Button
+              variant="contained"
+              color="primary"  
+            >
+             Back to Home
+            </Button>
+
+            </Link> 
+            </div>
+
+
+      </div>
+
+          </TabContainer>}
 
         <Dialog
           open={this.state.open}
@@ -182,8 +272,6 @@ class Food extends React.Component {
           </DialogContent>
         </Dialog>
 
-        </div>
-        </header>
         </div>
         <div>
         <GoogleMaps />
