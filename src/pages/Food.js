@@ -11,14 +11,16 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import white from '@material-ui/core/colors/blue';
+import { withStyles } from '@material-ui/core/styles';
 
-const  theme =createMuiTheme({
-  palette: {
-    primary: { main: '#fafafa' },
-  },
-   typography: { useNextVariants: true },
+
+const styles = theme => ({
+  '@global': {
+    body: {
+      backgroundColor: '#eaeaf7',
+    },
+  }
 });
 
 const url = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA-oa94sKrXg7yHqedmRh3yzs5sNDXd-7U&placeid="
@@ -69,25 +71,24 @@ class Food extends React.Component {
 
             </Link> 
             </div>
-        <MuiThemeProvider theme={theme}>
         <List disablePadding>
         <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo")}>
           <ListItemText
             primary=
-              {<Typography variant="h6" color="primary" >
+              {<Typography variant="h6">
                 San Diego Food Bank
               </Typography>}
   //
             secondary={
               <React.Fragment>
-                <Typography component="span"  color="primary" >
+                <Typography component="span"  >
                 Hours: 8:00am - 12:00pm, 1:00-5:00pm
                 </Typography>
-                <Typography  color="primary" >
+                <Typography >
                 Address: 9850 Distribution Ave, San Diego, CA 92121
                 </Typography>
 
-                <Typography  color="primary" >
+                <Typography>
                 Description: Free food to anyone, available until resources are depleted
                 </Typography>
               
@@ -99,15 +100,15 @@ class Food extends React.Component {
         <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM")}>
           <ListItemText
             primary=
-              {<Typography variant="h6" color="primary" >
+              {<Typography variant="h6">
                 San Diego Rescue Mission: Emergency Food
               </Typography>}
             secondary={
               <React.Fragment>
-                <Typography component="span"  color="primary" >
+                <Typography component="span" >
                 Hours: 9:30am - 5:30pm
                 </Typography>
-                <Typography  color="primary" >
+                <Typography>
                 Address: 120 Elm Street, San Diego, CA 92104
                 </Typography>
               
@@ -118,15 +119,15 @@ class Food extends React.Component {
         <ListItem disableGutters button alignItems="flex-start" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM")}>
           <ListItemText
             primary=
-              {<Typography variant="h6" color="primary" >
+              {<Typography variant="h6">
                 Loaves & Fishes Food Pantry
               </Typography>}
             secondary={
               <React.Fragment>
-                <Typography component="span"  color="primary" >
+                <Typography component="span">
                 hours: 9:30am - 11:30am (Mon, Wed, Fri only)
                 </Typography>
-                <Typography  color="primary" >
+                <Typography>
                 Address: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
                 </Typography>
               
@@ -181,7 +182,6 @@ class Food extends React.Component {
           </DialogContent>
         </Dialog>
 
-      </MuiThemeProvider>
         </div>
         </header>
         <GoogleMaps className="grid-item"/>
@@ -190,4 +190,4 @@ class Food extends React.Component {
   }
 }
 
-export default Food;
+export default withStyles(styles)(Food);
