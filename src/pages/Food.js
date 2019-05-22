@@ -77,18 +77,25 @@ function TabContainer(props) {
 const url = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA-oa94sKrXg7yHqedmRh3yzs5sNDXd-7U&placeid="
 const proxy = "https://cors-anywhere.herokuapp.com/"
 class Food extends React.Component {
+  constructor(props){
+    super(props)
+    this.googleMapsElement = React.createRef();
+  }
+
   state = {
     data: {},
     open: false,
     gotData:false,
-    value: 0,
+    value: 2,
+    lng: 0,
+    lat: 0,
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
 };
 
-  handleClick = id =>{
+  handleClick = (id, loc) =>{
     console.log(proxy+url+id)
 
     fetch(proxy+url+id)
@@ -98,7 +105,14 @@ class Food extends React.Component {
       this.setState({data:jsonData})
       console.log(this.state.data.result.formatted_address)
       this.setState({gotData:true})
-      this.setState({open:true})
+      this.setState({lng:this.state.data.result.geometry.location.lng})
+      this.setState({lat:this.state.data.result.geometry.location.lat})
+      if(loc == 1){
+        this.googleMapsElement.current.updateCoord(this.state.lat, this.state.lng)
+      }
+      if(loc == 0){
+        this.setState({open:true})
+      }
     })
   };
 
@@ -128,7 +142,7 @@ class Food extends React.Component {
         <div style = {{width: '20vw'}}>
 
         <List disablePadding>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -153,12 +167,12 @@ class Food extends React.Component {
           />
 
           <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info">
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -177,12 +191,12 @@ class Food extends React.Component {
             }
           />
           <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info">
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM")}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -201,7 +215,7 @@ class Food extends React.Component {
             }
           />
                     <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info">
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction>
@@ -274,7 +288,7 @@ class Food extends React.Component {
 
         </div>
         <div>
-        <GoogleMaps />
+        <GoogleMaps ref={this.googleMapsElement}/>
         </div>
         </div>
 

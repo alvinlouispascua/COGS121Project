@@ -23,11 +23,24 @@ const handleApiLoaded = (map, maps) => {
 
 class GoogleMaps extends Component {
   static defaultProps = {
-    center: {
-      lat: 32.75,
-      lng: -117.15
-    },
     zoom: 11
+  };
+
+  state = {
+    center:{
+      lat:32.75,
+      lng:-117.15
+    },
+    lat: 0,
+    lng: 0,
+  };
+
+  updateCoord = (lat, lng) =>{
+    this.setState({lat:lat})
+    this.setState({lng:lng})
+    this.setState({center:{lat:this.state.lat, lng:this.state.lng}})
+    console.log(this.state.center)
+    console.log(this.state.lng)
   };
 
    shouldComponentUpdate = shouldPureComponentUpdate;
@@ -38,22 +51,23 @@ class GoogleMaps extends Component {
       <div style={{ float:'left', display:'inline', height: '100vh', width: '75vw' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: ""}}
-          defaultCenter={this.props.center}
+          center={this.state.center}
           defaultZoom={this.props.zoom}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
         <AnyReactComponent
-            lat={32.75}
-            lng={-117.15}
-            text="#1"
+            lat={this.state.lat}
+            lng={this.state.lng}
+            text=""
           />
 
-         <AnyReactComponent
-            lat={32.8}
-            lng={-117}
-            text="#2"
-          />
+         {//<AnyReactComponent
+            //lat={32.8}
+            //lng={-117}
+            //text="#2"
+          ///>
+        }
         </GoogleMapReact>
       </div>
     );
