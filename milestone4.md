@@ -1,6 +1,21 @@
 # Milestone 4
 
-## UI webpages
+## UI Screenshots
+
+### Home Screen
+![Home Screen](images/ui1.png)
+
+### Food Screen
+![Food Screen](images/ui2.png)
+
+### Food Ajax Call 
+![Food Ajax Call Screen](images/ui3.png)
+
+### Healthcare
+![Healthcare Screen](images/ui4.png)
+
+### Shelter
+![Shelter Screen](images/ui5.png)
 
 ## How the UI has improved
 Our UI has improved significantly on the page where users can browse food banks, healthcare, and shelters. The google maps was enlarged so that seeing where a location is was more intuitive and straightforward. Also, instead of having three separate pages, there is one page that has tabs that switch between healthcare, food banks, and shelters, so that a user does not have to return to home to browse different resources. An info icon button was added to each resource so that users can click on that to access phone number, website, and exact geographical location. The list of resources was moved all the way to the left so that the user interface is intuitively divided into two sections: the list and the map. Finally, the back button was moved to the bottom rather than the top to make it less of a priority. 
