@@ -135,14 +135,282 @@ class Food extends React.Component {
             <Tab label="Food Banks" style={{ minWidth: 140 }}/>
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer>Shelters</TabContainer>}
-        {value === 1 && <TabContainer>Healthcare</TabContainer>}
+
+
+
+
+
+        {value === 0 && <TabContainer>
+
+          <div style = {{width: '20vw'}}>
+
+      <List disablePadding>
+      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              Salvation Army
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span" >
+              Hours: 8:00 AM to 5:00 PM
+              </Typography>
+              <Typography>
+              714 Rosarito Street, San Diego, CA 92101
+              </Typography>
+
+              <Typography >
+              Distance from you: 3 minute walk
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              San Diego Rescue Mission
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span">
+              Hours: 10:00 AM to 8:00 PM 
+              </Typography>
+              <Typography >
+              432 Linden Ave, San Diego, CA 92102
+              </Typography>
+
+              <Typography >
+              Distance from you: 5 minute walk
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              Temporary Bridge Shelter
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span" >
+              Hours: 24 Hours
+              </Typography>
+              <Typography >
+              16th Street and Newton Avenue
+              </Typography>
+
+              <Typography >
+              Distance from you: 9 minute walk
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6" >
+              Connections Housing Downtown
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span">
+              Hours: 8:00am - 7:00pm
+              </Typography>
+              <Typography >
+              2801 Sports Arena Boulevard
+              </Typography>
+
+              <Typography  >
+              Distance from you: 12 minute walk
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+    </List>
+    </div>
+
+          <div style={{paddingTop: 60}}>
+            
+
+            <Link to="/">
+            <Button
+              variant="contained"
+              color="primary"  
+            >
+             Back to Home
+            </Button>
+
+            </Link> 
+            </div>
+
+
+
+          </TabContainer>}
+
+
+
+
+
+        {value === 1 && <TabContainer>
+
+          <div style = {{width: '20vw'}}>
+
+      <List disablePadding>
+      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              Father Joe's Villages Village Health Center
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span" >
+              Hours: 8:30am - 11:45am; 12:30pm - 4:45pm
+              </Typography>
+              <Typography>
+              1501 Imperial Ave, San Diego, CA 92101
+              </Typography>
+
+              <Typography >
+              Available Physicians: Getwell PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              Family Health Centers of San Diego
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span">
+              Hours: 8:00am - 5:00pm
+              </Typography>
+              <Typography >
+              823 Gateway Center Way, San Diego, CA 92102
+              </Typography>
+
+              <Typography >
+              Available Physicians: Getwell PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6">
+              VA San Diego Health System
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span" >
+              Hours: 24 Hours
+              </Typography>
+              <Typography >
+              3350 La Jolla Village Dr, San Diego, CA 92161
+              </Typography>
+
+              <Typography >
+              Available Physicians: Getsoon PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItemText
+          primary=
+            {<Typography variant="h6" >
+              PATH
+            </Typography>}
+
+          secondary={
+            <React.Fragment>
+              <Typography component="span">
+              Hours: 8:00am - 4:00pm
+              </Typography>
+              <Typography >
+              1250 Sixth Ave, San Diego, CA 92101
+              </Typography>
+
+              <Typography  >
+              Available Physicians: Getbetter PH.D
+              </Typography>
+            
+            
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
+    </List>
+    </div>
+
+          <div style={{paddingTop: 60}}>
+            
+
+            <Link to="/">
+            <Button
+              variant="contained"
+              color="primary"  
+            >
+             Back to Home
+            </Button>
+
+            </Link> 
+            </div>
+</TabContainer>}
+
+
+
+
+
         {value === 2 && <TabContainer>
             
         <div style = {{width: '20vw'}}>
 
         <List disablePadding>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 1)}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -172,7 +440,7 @@ class Food extends React.Component {
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 1)}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -191,12 +459,12 @@ class Food extends React.Component {
             }
           />
           <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
+            <IconButton aria-label="Info" style={{left: 50}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 1)}>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 1)}>
           <ListItemText
             primary=
               {<Typography variant="h6">
@@ -215,14 +483,14 @@ class Food extends React.Component {
             }
           />
                     <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
+            <IconButton aria-label="Info" style={{left: 65}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
       </List>
 
-      <div style={{paddingTop: 100, paddingLeft:20}}>
+      <div style={{paddingTop: 60, paddingLeft:20}}>
             
 
             <Link to="/">

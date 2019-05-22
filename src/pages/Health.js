@@ -47,23 +47,23 @@ function Health() {
       <MuiThemeProvider theme = {theme}>
 
       <List disablePadding>
-      <ListItem disableGutters button alignItems="flex-start" >
+      <ListItem disableGutters button alignItems="flex-start" style = {{width: 300}} >
         <ListItemText
           primary=
-            {<Typography variant="h6" color="primary" >
+            {<Typography variant="h6" >
               Father Joe's Villages Village Health Center
             </Typography>}
 
           secondary={
             <React.Fragment>
-              <Typography component="span"  color="primary" >
+              <Typography component="span" >
               Hours: 8:30am - 11:45am; 12:30pm - 4:45pm
               </Typography>
               <Typography  color="primary" >
               1501 Imperial Ave, San Diego, CA 92101
               </Typography>
 
-              <Typography  color="primary" >
+              <Typography>
               Available Physicians: Getwell PH.D
               </Typography>
             
@@ -102,20 +102,20 @@ function Health() {
         <ListItem disableGutters button alignItems="flex-start" >
         <ListItemText
           primary=
-            {<Typography variant="h6" color="primary" >
+            {<Typography variant="h6">
               VA San Diego Health System
             </Typography>}
 
           secondary={
             <React.Fragment>
-              <Typography component="span"  color="primary" >
+              <Typography component="span">
               Hours: 24 Hours
               </Typography>
-              <Typography  color="primary" >
+              <Typography >
               3350 La Jolla Village Dr, San Diego, CA 92161
               </Typography>
 
-              <Typography  color="primary" >
+              <Typography>
               Available Physicians: Getsoon PH.D
               </Typography>
             
@@ -128,20 +128,20 @@ function Health() {
         <ListItem disableGutters button alignItems="flex-start" >
         <ListItemText
           primary=
-            {<Typography variant="h6" color="primary" >
+            {<Typography variant="h6" >
               PATH
             </Typography>}
 
           secondary={
             <React.Fragment>
-              <Typography component="span"  color="primary" >
+              <Typography component="span" >
               Hours: 8:00am - 4:00pm
               </Typography>
-              <Typography  color="primary" >
+              <Typography  >
               1250 Sixth Ave, San Diego, CA 92101
               </Typography>
 
-              <Typography  color="primary" >
+              <Typography>
               Available Physicians: Getbetter PH.D
               </Typography>
             

@@ -82,7 +82,7 @@ const tiers = [
   {
     title: 'Shelters',
     description: ['Fight the elements and find the nearest shelters!'],
-    link:'/Shelter',
+    link:'/Food',
     icon: IconShelter
   },
 
@@ -91,7 +91,7 @@ const tiers = [
     description: [
       'Get patched-up today at excellent clinics!'
     ],
-    link:'/Health',
+    link:'/Food',
     icon: IconHealthcare
 
   },
