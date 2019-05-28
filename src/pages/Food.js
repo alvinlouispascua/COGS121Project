@@ -536,19 +536,17 @@ class Food extends React.Component {
               : "Blank"
             }
           </DialogContent>
-
-           <DialogContent>
+          <DialogContent>
             {
               this.state.gotData
-              ? "Longitude: " + this.state.data.result.geometry.location.lng
+              ? "Rating: " + this.state.data.result.rating + "/5.0 (" + this.state.data.result.user_ratings_total + " reviews)" 
               : "Blank"
             }
           </DialogContent>
-
-           <DialogContent>
+          <DialogContent>
             {
               this.state.gotData
-              ? "Latitude: " + this.state.data.result.geometry.location.lat
+              ? "Review excerpt: \"" + this.state.data.result.reviews[0].text + "\""
               : "Blank"
             }
           </DialogContent>
