@@ -19,16 +19,17 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import white from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import {  MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import BackIcon from '@material-ui/icons/KeyboardBackspace';
 
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#ff4400',
+      main: '#b2b2f7',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -46,7 +47,7 @@ const theme = createMuiTheme({
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: '#eaeaf7',
+      backgroundColor: '#f4f4f7',
     },
     root: {
       flexGrow: 1,
@@ -55,7 +56,10 @@ const styles = theme => ({
     },
     tabRoot:{
       width: 10,
-    }
+    },
+    leftIcon: {
+    marginLeft: 20,
+  },
   }
 });
 
@@ -126,7 +130,10 @@ class Food extends React.Component {
     const { value } = this.state;
 
     return (
+
       <div>
+                <MuiThemeProvider theme={theme}>
+
             <div className={classes.root} style={{float:'left', display:'inline'}}>
         <AppBar color="primary" position="static" style={{width:420}}>
           <Tabs value={value} onChange={this.handleChange} >
@@ -407,6 +414,9 @@ class Food extends React.Component {
 
         {value === 2 && <TabContainer>
             
+          <MuiThemeProvider theme={theme}>
+
+
         <div style = {{width: '20vw'}}>
 
         <List disablePadding>
@@ -493,19 +503,23 @@ class Food extends React.Component {
       <div style={{paddingTop: 60, paddingLeft:20}}>
             
 
-            <Link to="/">
+
             <Button
-              variant="contained"
+              variant="outlined"
               color="primary"  
+              href="/"
             >
              Back to Home
+             <BackIcon className={classes.leftIcon} />
             </Button>
 
-            </Link> 
+ 
             </div>
 
 
       </div>
+
+    </MuiThemeProvider>
 
           </TabContainer>}
 
@@ -552,12 +566,14 @@ class Food extends React.Component {
           </DialogContent>
         </Dialog>
 
+
         </div>
         <div>
         <GoogleMaps ref={this.googleMapsElement}/>
         </div>
-        </div>
+            </MuiThemeProvider>
 
+        </div>
     );
   }
 }
