@@ -23,6 +23,7 @@ import {  MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
+import StarRating from 'react-star-rating';
 
 
 const theme = createMuiTheme({
@@ -127,6 +128,11 @@ class Food extends React.Component {
   render(){
     const { classes } = this.props;
     const { value } = this.state;
+    const starStyle = {
+      width: 100,
+      height: 20,
+      marginBottom: 20,
+    };
 
     return (
 
@@ -565,7 +571,6 @@ class Food extends React.Component {
               : "Blank"
             }
           </DialogTitle>
-
           <DialogContent>
             {//Terrible style, need to get rid of multiple dialogContents
               this.state.gotData
@@ -590,7 +595,7 @@ class Food extends React.Component {
           <DialogContent>
             {
               this.state.gotData
-              ? "Review excerpt: \"" + this.state.data.result.reviews[0].text + "\""
+              ? "Review excerpt: \"" + this.state.data.result.reviews[0].text + "\" - " + this.state.data.result.reviews[0].author_name + ", " + this.state.data.result.reviews[0].relative_time_description
               : "Blank"
             }
           </DialogContent>
