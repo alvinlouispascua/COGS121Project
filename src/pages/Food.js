@@ -157,13 +157,13 @@ class Food extends React.Component {
           <div style = {{width: '20vw'}}>
 
       <List disablePadding>
-      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJzXO64ltV2YARqr21uUD1sYg", 1)}>
+      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJGQrD50AA3IARwkrtCIR9fSs", 1)}>
         <ListItemText
           primary=
             {<div><Typography variant="h6">
               Salvation Army
             </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJzXO64ltV2YARqr21uUD1sYg", 0)}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJGQrD50AA3IARwkrtCIR9fSs", 0)}>
               <InfoIcon />
             </IconButton>
           </ListItemSecondaryAction></div>}
@@ -174,7 +174,7 @@ class Food extends React.Component {
               <b>Hours</b>: 8:00 AM to 5:00 PM
               </Typography>
               <Typography>
-              <b>Address</b>: 2799 Health Center Dr, San Diego, CA 92123
+              <b>Address</b>: 4170 Balboa Ave, San Diego, CA 92117
               </Typography>
             
             
