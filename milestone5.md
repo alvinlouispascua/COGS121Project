@@ -14,7 +14,7 @@
 ![Healthcare](images/Health3.png)
 
 ### Shelter
-![Shelter](images/Shelter.png)
+![Shelter](images/Shelter3.png)
 
 ## How our UI has improved
 
