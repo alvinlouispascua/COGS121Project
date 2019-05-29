@@ -32,6 +32,7 @@ const theme = createMuiTheme({
       main: '#b2b2f7',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
+      contrastText:'#606084',
     },
     secondary: {
       light: '#525271',
@@ -432,10 +433,6 @@ class Food extends React.Component {
                 <Typography >
                 Address: 9850 Distribution Ave, San Diego, CA 92121
                 </Typography>
-
-                <Typography>
-                Description: Free food to anyone, available until resources are depleted
-                </Typography>
               
               </React.Fragment>
             }
@@ -482,7 +479,7 @@ class Food extends React.Component {
             secondary={
               <React.Fragment>
                 <Typography component="span">
-                hours: 9:30am - 11:30am (Mon, Wed, Fri only)
+                Hours: 9:30am - 11:30am (Mon, Wed, Fri only)
                 </Typography>
                 <Typography>
                 Address: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
