@@ -16,5 +16,6 @@ We implemented our data display by using Google Places API and Google Maps API t
 
 ## Ambitious Data Display Ideas
 
+More ambitious data display ideas that we have is being able to display the resources that are closest to you, and being able to display distance from each resource by walking. 
 
 
