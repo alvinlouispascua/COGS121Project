@@ -13,6 +13,11 @@ import Paper from '@material-ui/core/Paper';
 import firebase from './firebase.js';
 
 const styles = theme => ({
+    '@global': {
+    body: {
+      backgroundColor: '#eaeaf7',
+    },
+  },
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
