@@ -6,7 +6,7 @@
 
 ## How our UI has improved
 
-### Our user interface has improved 
+Our user interface has improved 
 
 ## Data Display Screenshots
 
