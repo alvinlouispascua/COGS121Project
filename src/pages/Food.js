@@ -23,7 +23,7 @@ import {  MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
-import StarRating from 'react-star-rating';
+//import StarRating from 'react-star-rating';
 
 
 const theme = createMuiTheme({
@@ -80,6 +80,7 @@ function TabContainer(props) {
 
 const url = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA-oa94sKrXg7yHqedmRh3yzs5sNDXd-7U&placeid="
 const proxy = "https://cors-anywhere.herokuapp.com/"
+
 class Food extends React.Component {
   constructor(props){
     super(props)

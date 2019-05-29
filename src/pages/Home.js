@@ -82,7 +82,7 @@ const tiers = [
   {
     title: 'Shelters',
     description: ['Fight the elements and find the nearest shelters!'],
-    link:'/Food',
+    link:'/Shelter',
     icon: IconShelter
   },
 
@@ -91,7 +91,7 @@ const tiers = [
     description: [
       'Get patched-up today at excellent clinics!'
     ],
-    link:'/Food',
+    link:'/Health',
     icon: IconHealthcare
 
   },
@@ -128,7 +128,7 @@ function Pricing(props) {
               <Card className={classes.card}>
                 <ButtonBase className={props.classes.cardAction}>
 
-          <Link to={tier.link} style={{ textDecoration: 'none' }}>
+          <Link to={tier.link} style={{ textDecoration: 'none' }} >
                 <CardHeader
                   title={tier.title}
                   titleTypographyProps={{ align: 'center' }}
