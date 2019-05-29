@@ -2,6 +2,8 @@
 
 ## How a user can use our app to achieve their goals
 
+A user in our target population, the homeless of San Diego, would use our app by first going to a public library and accessing the website on a computer. Then, the user would select whether they were looking for food banks, healthcare, or shelter. They would then browse through the list of resources that interest them. They would click the info button to learn more about a specific resource. They could read the rating and the review listed, and potentially visit the listed website of the resource. They would click on a resource to see its position on a map, and after accessing all of this information, they would decide which resource they wanted to go to, and travel there. 
+
 ## UI Screenshots
 
 ### Home Screen
