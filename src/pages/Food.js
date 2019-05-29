@@ -151,24 +151,24 @@ class Food extends React.Component {
           <div style = {{width: '20vw'}}>
 
       <List disablePadding>
-      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJzXO64ltV2YARqr21uUD1sYg", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
+            {<div><Typography variant="h6">
               Salvation Army
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJzXO64ltV2YARqr21uUD1sYg", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span" >
-              Hours: 8:00 AM to 5:00 PM
+              <b>Hours</b>: 8:00 AM to 5:00 PM
               </Typography>
               <Typography>
-              714 Rosarito Street, San Diego, CA 92101
-              </Typography>
-
-              <Typography >
-              Distance from you: 3 minute walk
+              <b>Address</b>: 2799 Health Center Dr, San Diego, CA 92123
               </Typography>
             
             
@@ -177,24 +177,24 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJn7u0quGq3oAR7d7GdyLIxjE", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
+            {<div><Typography variant="h6">
               San Diego Rescue Mission
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJn7u0quGq3oAR7d7GdyLIxjE", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span">
-              Hours: 10:00 AM to 8:00 PM 
+              <b>Hours</b>: 10:00 AM to 8:00 PM 
               </Typography>
               <Typography >
-              432 Linden Ave, San Diego, CA 92102
-              </Typography>
-
-              <Typography >
-              Distance from you: 5 minute walk
+              <b>Address</b>: 432 Linden Ave, San Diego, CA 92102
               </Typography>
             
             
@@ -203,24 +203,25 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJV4dEpaVV2YARgYCIzN9ieto", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
-              Temporary Bridge Shelter
-            </Typography>}
+            {<div><Typography variant="h6">
+              Interfaith Shelter Network
+
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJV4dEpaVV2YARgYCIzN9ieto", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span" >
-              Hours: 24 Hours
+              <b>Hours</b>: 24 Hours
               </Typography>
               <Typography >
-              16th Street and Newton Avenue
-              </Typography>
-
-              <Typography >
-              Distance from you: 9 minute walk
+              <b>Address</b>: 3530 Camino Del Rio N # 301, San Diego, CA 92108
               </Typography>
             
             
@@ -229,27 +230,26 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJrQZGPyMG3IARiV6DyfPGoUw", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6" >
-              Connections Housing Downtown
-            </Typography>}
+            {<div><Typography variant="h6" >
+              HomeAid San Diego
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJrQZGPyMG3IARiV6DyfPGoUw", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span">
-              Hours: 8:00am - 7:00pm
+              <b>Hours</b>: 8:00am - 5:00pm
               </Typography>
               <Typography >
-              2801 Sports Arena Boulevard
+              <b>Address</b>: 6960 Flanders Dr, San Diego, CA 92121
               </Typography>
 
-              <Typography  >
-              Distance from you: 12 minute walk
-              </Typography>
-            
-            
             </React.Fragment>
           }
         />
@@ -282,20 +282,24 @@ class Food extends React.Component {
           <div style = {{width: '20vw'}}>
 
       <List disablePadding>
-      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJ84EIo0JT2YARCWUlrBhmhMA", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
+            {<div><Typography variant="h6">
               Father Joe's Villages Village Health Center
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ84EIo0JT2YARCWUlrBhmhMA", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span" >
-              Hours: 8:30am - 11:45am; 12:30pm - 4:45pm
+              <b>Hours</b>: 8:30am - 11:45am; 12:30pm - 4:45pm
               </Typography>
               <Typography>
-              1501 Imperial Ave, San Diego, CA 92101
+              <b>Address</b>: 1501 Imperial Ave, San Diego, CA 92101
               </Typography>
 
               <Typography >
@@ -308,20 +312,24 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJeyE_yWtT2YAR_eBgW85HXvo", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
+            {<div><Typography variant="h6">
               Family Health Centers of San Diego
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJeyE_yWtT2YAR_eBgW85HXvo", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span">
-              Hours: 8:00am - 5:00pm
+              <b>Hours</b>: 8:00am - 5:00pm
               </Typography>
               <Typography >
-              823 Gateway Center Way, San Diego, CA 92102
+              <b>Address</b>: 823 Gateway Center Way, San Diego, CA 92102
               </Typography>
 
               <Typography >
@@ -334,20 +342,24 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJYeuR_c8G3IARczBp7wj4nhY", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6">
+            {<div><Typography variant="h6">
               VA San Diego Health System
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJYeuR_c8G3IARczBp7wj4nhY", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span" >
-              Hours: 24 Hours
+              <b>Hours</b>: 24 Hours
               </Typography>
               <Typography >
-              3350 La Jolla Village Dr, San Diego, CA 92161
+              <b>Address</b>: 3350 La Jolla Village Dr, San Diego, CA 92161
               </Typography>
 
               <Typography >
@@ -360,20 +372,24 @@ class Food extends React.Component {
         />
       </ListItem>
 
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" >
+        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJL9IFQaZU2YARS0mpY7TyNvI", 1)}>
         <ListItemText
           primary=
-            {<Typography variant="h6" >
+            {<div><Typography variant="h6" >
               PATH
-            </Typography>}
+            </Typography><ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJL9IFQaZU2YARS0mpY7TyNvI", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
 
           secondary={
             <React.Fragment>
               <Typography component="span">
-              Hours: 8:00am - 4:00pm
+              <b>Hours</b>: 8:00am - 4:00pm
               </Typography>
               <Typography >
-              1250 Sixth Ave, San Diego, CA 92101
+              <b>Address</b>: 1250 Sixth Ave, San Diego, CA 92101
               </Typography>
 
               <Typography  >
@@ -428,10 +444,10 @@ class Food extends React.Component {
             secondary={
               <React.Fragment>
                 <Typography component="span"  >
-                Hours: 8:00am - 12:00pm, 1:00-5:00pm
+                <b>Hours</b>: 8:00am - 12:00pm, 1:00-5:00pm
                 </Typography>
                 <Typography >
-                Address: 9850 Distribution Ave, San Diego, CA 92121
+                <b>Address</b>: 9850 Distribution Ave, San Diego, CA 92121
                 </Typography>
               
               </React.Fragment>
@@ -454,11 +470,11 @@ class Food extends React.Component {
             }
             secondary={
               <React.Fragment>
-                <Typography component="span" >
-                Hours: 9:30am - 5:30pm
+                <Typography component="span">
+                <b>Hours</b>: 9:30am - 5:30pm
                 </Typography>
                 <Typography>
-                Address: 120 Elm Street, San Diego, CA 92104
+                <b>Address</b>: 120 Elm Street, San Diego, CA 92104
                 </Typography>
               
               </React.Fragment>
@@ -479,10 +495,34 @@ class Food extends React.Component {
             secondary={
               <React.Fragment>
                 <Typography component="span">
-                Hours: 9:30am - 11:30am (Mon, Wed, Fri only)
+                <b>Hours</b>: 9:30am - 11:30am (Mon, Wed, Fri only)
                 </Typography>
                 <Typography>
-                Address: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
+                <b>Address</b>: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
+                </Typography>
+              
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJWz80xaf424AR6GqEP_YkCXY", 1)}>
+          <ListItemText
+            primary=
+              {<div><Typography variant="h6">
+                Feeding San Diego
+              </Typography>
+                        <ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWz80xaf424AR6GqEP_YkCXY", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
+            secondary={
+              <React.Fragment>
+                <Typography component="span">
+                <b>Hours</b>: 8:00am - 4:30pm 
+                </Typography>
+                <Typography>
+                <b>Address</b>: 9455 Waples St #135, San Diego, CA 92121
                 </Typography>
               
               </React.Fragment>
