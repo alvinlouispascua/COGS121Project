@@ -24,8 +24,14 @@ Our user interface has improved in several ways. Firstly, the colors on the reso
 
 ## Data Display Screenshot
 
+### Food Banks Data Display
 ![Data Display](images/DataDisplay.png)
 
+### Healthcare Data Display
+![Data Display](images/DataDisplay2.png)
+
+### Shelters Data Display
+![Data Display](images/DataDisplay3.png)
 
 ## How we implemented our data display
 
