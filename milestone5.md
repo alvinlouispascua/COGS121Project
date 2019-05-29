@@ -22,7 +22,7 @@ Our target population are those who're suffering from the hardships of homelessn
 
 Our user interface has improved in several ways. Firstly, the colors on the resources pages have been completely changed to match the color scheme of the home page. Second, the typography among each different resource (food banks, shelters, and healthcare) was changed to make it consistent across resources. Also, we increased the font weight on subtitles such as hours and address to differentiate them visually from the content. Also, we changed the UI's implementation and the size of each component so that it works on nearly every display size. Previously, the info icon buttons would collapse into the list item but these bugs were fixed. Also, the size of the Google Maps component now changes as the browser size changes so it never becomes too large. Finally, the marker for the Google Maps was changed from a circle to a more traditional pointer. 
 
-## Data Display Screenshot
+## Data Display Screenshots
 
 ### Food Banks Data Display
 ![Data Display](images/DataDisplay.png)
@@ -35,7 +35,7 @@ Our user interface has improved in several ways. Firstly, the colors on the reso
 
 ## How we implemented our data display
 
-We implemented our data display by using Google Places API and Google Maps API to display the resource's details, including phone number, website, rating, number of ratings, and reviews, as well as the resource's geographical position in a map, respectively. We made a Google Places call for each resource, the code of which can be found in src/pages/Food.js, which returned a long json object. We filtered through this json object and selected the most pertinent information, which includes the phone number, website, rating, number of ratings, and sample reviews. We then formatted this information into a dialog with subtitles for each information and displayed it. We used the latitude and longitude from the Google Places API call to display the geographical location of the resource in a map. 
+We implemented our data display by using Google Places API and Google Maps API to display the resource's details, including phone number, website, rating, number of ratings, and reviews, as well as the resource's geographical position in a map, respectively. We made a Google Places call for each resource, the code of which can be found in src/pages/Food.js, which returned a long json object. We filtered through this json object and selected the most pertinent information, which includes the phone number, website, rating, number of ratings, and sample reviews. We then formatted this information into a dialog with subtitles for each information and displayed it. We decided to display is as simple text because that is the original format of the data, and it makes most sense for the user to be able to just read the phone number, website, rating and reviews. We used the latitude and longitude from the Google Places API call to display the geographical location of the resource in a map, using the Google Maps API. Showing where the resource is on the map helps the user to visualize what part of San Diego the resource is located in, and approximately how far it is from their current location. 
 
 ## Ambitious Data Display Ideas
 
