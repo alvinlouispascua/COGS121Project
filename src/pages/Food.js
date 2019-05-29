@@ -34,7 +34,7 @@ const theme = createMuiTheme({
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      light: '#0066ff',
+      light: '#525271',
       main: '#0044ff',
       // dark: will be calculated from palette.secondary.main,
       contrastText: '#ffcc00',
@@ -47,8 +47,9 @@ const theme = createMuiTheme({
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: '#f4f4f7',
-    },
+      backgroundColor: '#fff',
+    }
+  },
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
@@ -60,14 +61,11 @@ const styles = theme => ({
     leftIcon: {
     marginLeft: 20,
   },
+  indicator:{
+    backgroundColor: '#525271'
   }
 });
 
-const style = {
- tab: {
-  width: 140
- }
-}
 
 function TabContainer(props) {
   return (
@@ -136,7 +134,7 @@ class Food extends React.Component {
 
             <div className={classes.root} style={{float:'left', display:'inline'}}>
         <AppBar color="primary" position="static" style={{width:420}}>
-          <Tabs value={value} onChange={this.handleChange} >
+          <Tabs value={value}  classes={{indicator: classes.indicator}} onChange={this.handleChange}>
             <Tab label="Shelters" style={{ minWidth: 140 }}/>
             <Tab label="Healthcare" style={{ minWidth: 140 }}/>
             <Tab label="Food Banks" style={{ minWidth: 140 }}/>
@@ -261,16 +259,13 @@ class Food extends React.Component {
 
           <div style={{paddingTop: 60}}>
             
-
-            <Link to="/">
             <Button
               variant="contained"
               color="primary"  
+              href="/"
             >
              Back to Home
             </Button>
-
-            </Link> 
             </div>
 
 
@@ -395,16 +390,13 @@ class Food extends React.Component {
 
           <div style={{paddingTop: 60}}>
             
-
-            <Link to="/">
             <Button
               variant="contained"
               color="primary"  
+              href="/"
             >
              Back to Home
             </Button>
-
-            </Link> 
             </div>
 </TabContainer>}
 
@@ -423,9 +415,15 @@ class Food extends React.Component {
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 1)}>
           <ListItemText
             primary=
-              {<Typography variant="h6">
+              {<div><Typography variant="h6">
                 San Diego Food Bank
-              </Typography>}
+              </Typography>
+
+          <ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
             secondary={
               <React.Fragment>
                 <Typography component="span"  >
@@ -444,18 +442,19 @@ class Food extends React.Component {
 
           />
 
-          <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
         </ListItem>
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 1)}>
           <ListItemText
             primary=
-              {<Typography variant="h6">
+              {<div><Typography variant="h6">
                 San Diego Rescue Mission: Emergency Food
-              </Typography>}
+              </Typography>
+            <ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>
+            }
             secondary={
               <React.Fragment>
                 <Typography component="span" >
@@ -468,18 +467,18 @@ class Food extends React.Component {
               </React.Fragment>
             }
           />
-          <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info" style={{left: 50}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
         </ListItem>
         <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 1)}>
           <ListItemText
             primary=
-              {<Typography variant="h6">
+              {<div><Typography variant="h6">
                 Loaves & Fishes Food Pantry
-              </Typography>}
+              </Typography>
+                        <ListItemSecondaryAction style={{top:23}}>
+            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
+              <InfoIcon />
+            </IconButton>
+          </ListItemSecondaryAction></div>}
             secondary={
               <React.Fragment>
                 <Typography component="span">
@@ -492,11 +491,6 @@ class Food extends React.Component {
               </React.Fragment>
             }
           />
-                    <ListItemSecondaryAction style={{top:21}}>
-            <IconButton aria-label="Info" style={{left: 65}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
         </ListItem>
       </List>
 
@@ -505,12 +499,11 @@ class Food extends React.Component {
 
 
             <Button
-              variant="outlined"
+              variant="contained"
               color="primary"  
               href="/"
             >
              Back to Home
-             <BackIcon className={classes.leftIcon} />
             </Button>
 
  
