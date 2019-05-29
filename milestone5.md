@@ -6,6 +6,8 @@
 
 ## How our UI has improved
 
+### Our user interface has improved 
+
 ## Data Display Screenshots
 
 ## How we implemented our data display
