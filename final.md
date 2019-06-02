@@ -28,7 +28,7 @@
 • Front-end development  
 • Milestone writing
 
-## List of source code files (in production branch) with descriptions
+## List of source code files (in production branch)
 
 • **src/pages/Home.js**  
 Home page of the website, implements ability to navigate to shelter, healthcare, and foodbank pages. Uses React.js and Material-UI for styling. 
