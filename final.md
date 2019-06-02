@@ -2,11 +2,14 @@
 
 ## Egbert Doan
 
-• Front-end development   
+• Paper prototyping   
+• User interviews  
+• Front-end development & UI Skeleton     
 • Demo video
 
 ## Jonathan Kiger
 
+• Paper prototyping  
 • Back-end development  
 • Source code organization  
 • Google Maps API, Google Places API  
@@ -14,13 +17,17 @@
 ## Alvin Pascua
 
 • Milestone organization  
+• Storyboarding  
 • User interface design  
+• Collecting homeless resource data  
 
 ## Marc Raphael
 
+• Storyboarding  
 • User interface design  
 • Front-end development  
 • Google Places API  
+• Milestone writing
 
 ## List of source code files
 
