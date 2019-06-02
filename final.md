@@ -29,9 +29,21 @@
 • Google Places API  
 • Milestone writing
 
-## List of source code files
+## List of source code files with descriptions
 
+• src/pages/Home.js  
 
+• src/pages/Food.js  
+
+• src/pages/Shelter.js  
+
+• src/pages/Health.js  
+
+• src/pages/firebase.js  
+
+• src/components/GoogleMaps.js
+
+• src/App.js 
 
 ## Link to Google Slides presentation 
 https://docs.google.com/presentation/d/1-AK5muAv1G4qHCY3pkXveSfgPcenN5OC4Zgu1mQm6FU/edit?usp=sharing
