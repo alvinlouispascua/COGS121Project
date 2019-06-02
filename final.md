@@ -26,7 +26,6 @@
 • Storyboarding  
 • User interface design  
 • Front-end development  
-• Google Places API  
 • Milestone writing
 
 ## List of source code files with descriptions
