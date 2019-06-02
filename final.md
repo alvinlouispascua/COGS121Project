@@ -1,10 +1,28 @@
-# Final
+# Final.md
 
-## Egbert Doan, Jonathan Kiger, Alvin Pascua, Marc Raphael
+## Egbert Doan
 
-## What we did throughout the quarter
+• Front-end development   
+• Demo video
 
+## Jonathan Kiger
 
+• Back-end development  
+• Source code organization  
+• Google Maps API, Google Places API  
+
+## Alvin Pascua
+
+• Milestone organization  
+• User interface design  
+
+## Marc Raphael
+
+• User interface design  
+• Front-end development  
+• Google Places API  
+
+## List of source code files
 
 
 
