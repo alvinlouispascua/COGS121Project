@@ -309,11 +309,6 @@ class Food extends React.Component {
               <b>Address</b>: 1501 Imperial Ave, San Diego, CA 92101
               </Typography>
 
-              <Typography >
-              Available Physicians: Getwell PH.D
-              </Typography>
-            
-            
             </React.Fragment>
           }
         />
@@ -339,10 +334,6 @@ class Food extends React.Component {
               <b>Address</b>: 823 Gateway Center Way, San Diego, CA 92102
               </Typography>
 
-              <Typography >
-              Available Physicians: Getwell PH.D
-              </Typography>
-            
             
             </React.Fragment>
           }
@@ -369,11 +360,6 @@ class Food extends React.Component {
               <b>Address</b>: 3350 La Jolla Village Dr, San Diego, CA 92161
               </Typography>
 
-              <Typography >
-              Available Physicians: Getsoon PH.D
-              </Typography>
-            
-            
             </React.Fragment>
           }
         />
@@ -399,10 +385,6 @@ class Food extends React.Component {
               <b>Address</b>: 1250 Sixth Ave, San Diego, CA 92101
               </Typography>
 
-              <Typography  >
-              Available Physicians: Getbetter PH.D
-              </Typography>
-            
             
             </React.Fragment>
           }
