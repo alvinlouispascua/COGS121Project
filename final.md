@@ -43,7 +43,7 @@ Lists several homeless shelters in San Diego, as well as their hours and their a
 Lists several homeless-friendly healthcare clinics in San Diego, as well as their hours and their addresses. Implements Google Maps API with the ability to click on food banks to show them centered on the map and Google Places API, with the ability to get more information about each clinic, including phone number, website, ratings, and reviews. 
 
 • **src/pages/firebase.js**    
-Initializes firebase for a previous version of the app (we aren't using firebase anymore). 
+Initializes firebase for the app, creating the appropriate config file to interact with our database 
 
 • **src/components/GoogleMaps.js**    
 Initializes the Google Maps API, sets the size of the Google Maps component, and implements the ability to recenter the component using latitude and longitude data. 
