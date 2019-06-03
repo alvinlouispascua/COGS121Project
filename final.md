@@ -11,7 +11,7 @@
 
 • Paper prototyping  
 • Back-end development  
-• Source code organization  
+• Source code and database organization  
 • Google Maps API, Google Places API  
 
 ## Alvin Pascua
