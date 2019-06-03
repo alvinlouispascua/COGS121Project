@@ -1,4 +1,14 @@
+/*
+ * The code for the Food Page. It lists several food banks in the San Diego area as well their hours 
+ * and addresses. Firebase stores the unique GooglePlaces ID for each location, which we then retrieve and 
+ * use to make a GET request using the GooglePlaces ID. This GET request returns latitude, longitude,
+ * address, name, phone number, website, ratings, and reviews. We use the latitude and longitude to
+ * create a marker on google maps and recenter the map. Then we display the phone number, ratings, and the
+ * most recent review on the info page. Uses material-ui and our own custom CSS for styling
+ */
 
+
+//All node modules used
 import React from 'react';
 import { Link, withRouter, NavLink} from "react-router-dom";
 import Button from "@material-ui/core/Button";
@@ -24,8 +34,29 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
 //import StarRating from 'react-star-rating';
+import firebase from './firebase.js';
 
 
+  const database = firebase.database();
+
+const rows = []
+
+//fills rows with food data retrieved from firebase
+  database.ref('food/1').once('value', (snapshot) => {
+      rows[0] = snapshot.val();
+    });
+    database.ref('food/2').once('value', (snapshot) => {
+      rows[1] = snapshot.val(); 
+    });
+      database.ref('food/3').once('value', (snapshot) => {
+      rows[2] = snapshot.val();
+    });
+        database.ref('food/4').once('value', (snapshot) => {
+      rows[3] = snapshot.val();
+    });
+
+
+//Theme for material-ui components
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -46,6 +77,7 @@ const theme = createMuiTheme({
 });
 
 
+//CSS styling
 const styles = theme => ({
   '@global': {
     body: {
@@ -68,7 +100,7 @@ const styles = theme => ({
   }
 });
 
-
+//Creates styling for tabContainer Component
 function TabContainer(props) {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -77,32 +109,93 @@ function TabContainer(props) {
   );
 }
 
-
+//URL we use when making the GET request to googlePlaces Api, uses our api key
 const url = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA-oa94sKrXg7yHqedmRh3yzs5sNDXd-7U&placeid="
 const proxy = "https://cors-anywhere.herokuapp.com/"
 
-class Food extends React.Component {
+class Shelter extends React.Component {
   constructor(props){
     super(props)
     this.googleMapsElement = React.createRef();
   }
 
   state = {
-    data: {},
-    open: false,
-    gotData:false,
-    value: 2,
-    lng: 0,
+    data: {}, //data form GooglePlaces Api call
+    open: false, //boolean for info dialog
+    gotData:false, //boolean to make sure data was retrived
+    value: 2, //the tab selected
+    lng: 0, // initial coordindates
     lat: 0,
+    fbData: rows, // firebase data
   };
 
+//makes sure that all the data is rendered properly, if not re-render
+  componentDidMount(){
+    this.updateData()
+  }
+
+//async function that retrieves data from firebase, depending on which tab we're on
+  updateData = async () =>{
+    if(this.state.value === 0){
+      await database.ref('shelters/1').once('value', (snapshot) => {
+        rows[0] = snapshot.val();
+      });
+      await database.ref('shelters/2').once('value', (snapshot) => {
+        rows[1] = snapshot.val(); 
+      });
+      await database.ref('shelters/3').once('value', (snapshot) => {
+        rows[2] = snapshot.val();
+      });
+      await database.ref('shelters/4').once('value', (snapshot) => {
+        rows[3] = snapshot.val();
+      });
+    }
+    else if(this.state.value === 1){
+      await database.ref('health/1').once('value', (snapshot) => {
+        rows[0] = snapshot.val();
+      });
+      await database.ref('health/2').once('value', (snapshot) => {
+        rows[1] = snapshot.val(); 
+      });
+      await database.ref('health/3').once('value', (snapshot) => {
+        rows[2] = snapshot.val();
+      });
+      await database.ref('health/4').once('value', (snapshot) => {
+        rows[3] = snapshot.val();
+      });      
+    }
+
+    else{
+      await database.ref('food/1').once('value', (snapshot) => {
+        rows[0] = snapshot.val();
+      });
+      await database.ref('food/2').once('value', (snapshot) => {
+        rows[1] = snapshot.val(); 
+      });
+      await database.ref('food/3').once('value', (snapshot) => {
+        rows[2] = snapshot.val();
+      });
+      await database.ref('food/4').once('value', (snapshot) => {
+        rows[3] = snapshot.val();
+      });      
+    }
+
+    this.setState({fbData: rows})
+    console.log(this.state.fbData)
+
+  }
+
+//Function for tab changing, callsupdateData
   handleChange = (event, value) => {
-    this.setState({ value });
+    this.setState({ value }, this.updateData);    
 };
 
+//Function that makes the GET request to GooglePlaces API, stores the data, and uses it to display the marker and recenter the map
+//It's only called when the user clicks on one of the listed items
   handleClick = (id, loc) =>{
     console.log(proxy+url+id)
 
+    //the GET request
     fetch(proxy+url+id)
     .then(response => response.json())
     .then((jsonData) => {
@@ -112,15 +205,18 @@ class Food extends React.Component {
       this.setState({gotData:true})
       this.setState({lng:this.state.data.result.geometry.location.lng})
       this.setState({lat:this.state.data.result.geometry.location.lat})
-      if(loc == 1){
+      if(loc == 1){ //if list item is clicked
+        //drawing marker and setting coordinates
         this.googleMapsElement.current.updateCoord(this.state.lat, this.state.lng)
       }
-      if(loc == 0){
+      if(loc == 0){ //if the info button is clicked
         this.setState({open:true})
       }
     })
   };
 
+
+//closes info dialog
   handleClose = () => {
     this.setState({ open: false });
   };
@@ -135,6 +231,7 @@ class Food extends React.Component {
       marginBottom: 20,
     };
 
+    //Where all the styling and components are displayed
     return (
 
       <div>
@@ -152,395 +249,65 @@ class Food extends React.Component {
 
 
 
-
-        {value === 0 && <TabContainer>
-
-          <div style = {{width: '20vw'}}>
-
-      <List disablePadding>
-      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJGQrD50AA3IARwkrtCIR9fSs", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              Salvation Army
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJGQrD50AA3IARwkrtCIR9fSs", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span" >
-              <b>Hours</b>: 8:00 AM to 5:00 PM
-              </Typography>
-              <Typography>
-              <b>Address</b>: 4170 Balboa Ave, San Diego, CA 92117
-              </Typography>
-            
-            
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJn7u0quGq3oAR7d7GdyLIxjE", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              San Diego Rescue Mission
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJn7u0quGq3oAR7d7GdyLIxjE", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span">
-              <b>Hours</b>: 10:00 AM to 8:00 PM 
-              </Typography>
-              <Typography >
-              <b>Address</b>: 432 Linden Ave, San Diego, CA 92102
-              </Typography>
-            
-            
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJV4dEpaVV2YARgYCIzN9ieto", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              Interfaith Shelter Network
-
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJV4dEpaVV2YARgYCIzN9ieto", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span" >
-              <b>Hours</b>: 24 Hours
-              </Typography>
-              <Typography >
-              <b>Address</b>: 3530 Camino Del Rio N # 301, San Diego, CA 92108
-              </Typography>
-            
-            
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJrQZGPyMG3IARiV6DyfPGoUw", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6" >
-              HomeAid San Diego
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJrQZGPyMG3IARiV6DyfPGoUw", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span">
-              <b>Hours</b>: 8:00am - 5:00pm
-              </Typography>
-              <Typography >
-              <b>Address</b>: 6960 Flanders Dr, San Diego, CA 92121
-              </Typography>
-
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-    </List>
-    </div>
-
-          <div style={{paddingTop: 60}}>
-            
-            <Button
-              variant="contained"
-              color="primary"  
-              href="/"
-            >
-             Back to Home
-            </Button>
-            </div>
-
-
-
-          </TabContainer>}
-
-
-
-
-
-        {value === 1 && <TabContainer>
-
-          <div style = {{width: '20vw'}}>
+{
+  //This Tabcontainer is how we navigate between the three tabs
+}
+  <TabContainer>
+    <div style = {{width: '20vw'}}>
 
       <List disablePadding>
-      <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJ84EIo0JT2YARCWUlrBhmhMA", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              Father Joe's Villages Village Health Center
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ84EIo0JT2YARCWUlrBhmhMA", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
+      {
+        //Maps the firebase data to each item listed. HandleClick is set for each one, row.key is the unique googlePlaces ID
+      }
+        {this.state.fbData.map (row => (
+          <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick(row.key, 1)}>
+            <ListItemText
+              primary=
+                {<div><Typography variant="h6">
+                  {row.name}
+                </Typography><ListItemSecondaryAction style={{top:23}}>
+                <IconButton aria-label="Info" onClick={() => this.handleClick(row.key, 0)}>
+                  <InfoIcon />
+                </IconButton>
+              </ListItemSecondaryAction></div>}
 
-          secondary={
-            <React.Fragment>
-              <Typography component="span" >
-              <b>Hours</b>: 8:30am - 11:45am; 12:30pm - 4:45pm
-              </Typography>
-              <Typography>
-              <b>Address</b>: 1501 Imperial Ave, San Diego, CA 92101
-              </Typography>
-
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJeyE_yWtT2YAR_eBgW85HXvo", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              Family Health Centers of San Diego
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJeyE_yWtT2YAR_eBgW85HXvo", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span">
-              <b>Hours</b>: 8:00am - 5:00pm
-              </Typography>
-              <Typography >
-              <b>Address</b>: 823 Gateway Center Way, San Diego, CA 92102
-              </Typography>
-
-            
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJYeuR_c8G3IARczBp7wj4nhY", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6">
-              VA San Diego Health System
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJYeuR_c8G3IARczBp7wj4nhY", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span" >
-              <b>Hours</b>: 24 Hours
-              </Typography>
-              <Typography >
-              <b>Address</b>: 3350 La Jolla Village Dr, San Diego, CA 92161
-              </Typography>
-
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-        <ListItem disableGutters button style={{width: 380}} alignItems="flex-start" onClick={() => this.handleClick("ChIJL9IFQaZU2YARS0mpY7TyNvI", 1)}>
-        <ListItemText
-          primary=
-            {<div><Typography variant="h6" >
-              PATH
-            </Typography><ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJL9IFQaZU2YARS0mpY7TyNvI", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-
-          secondary={
-            <React.Fragment>
-              <Typography component="span">
-              <b>Hours</b>: 8:00am - 4:00pm
-              </Typography>
-              <Typography >
-              <b>Address</b>: 1250 Sixth Ave, San Diego, CA 92101
-              </Typography>
-
-            
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-
-    </List>
-    </div>
-
-          <div style={{paddingTop: 60}}>
-            
-            <Button
-              variant="contained"
-              color="primary"  
-              href="/"
-            >
-             Back to Home
-            </Button>
-            </div>
-</TabContainer>}
-
-
-
-
-
-        {value === 2 && <TabContainer>
-            
-          <MuiThemeProvider theme={theme}>
-
-
-        <div style = {{width: '20vw'}}>
-
-        <List disablePadding>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 1)}>
-          <ListItemText
-            primary=
-              {<div><Typography variant="h6">
-                San Diego Food Bank
-              </Typography>
-
-          <ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJ90a0ZK7424AR1CLNKoiDWgo", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-            secondary={
-              <React.Fragment>
-                <Typography component="span"  >
-                <b>Hours</b>: 8:00am - 12:00pm, 1:00-5:00pm
-                </Typography>
-                <Typography >
-                <b>Address</b>: 9850 Distribution Ave, San Diego, CA 92121
-                </Typography>
-              
-              </React.Fragment>
-            }
-
-          />
-
-        </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 1)}>
-          <ListItemText
-            primary=
-              {<div><Typography variant="h6">
-                San Diego Rescue Mission: Emergency Food
-              </Typography>
-            <ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJbft63K9U2YAR8EU8ndNqKUM", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>
-            }
-            secondary={
-              <React.Fragment>
-                <Typography component="span">
-                <b>Hours</b>: 9:30am - 5:30pm
-                </Typography>
-                <Typography>
-                <b>Address</b>: 120 Elm Street, San Diego, CA 92104
-                </Typography>
-              
-              </React.Fragment>
-            }
-          />
-        </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 1)}>
-          <ListItemText
-            primary=
-              {<div><Typography variant="h6">
-                Loaves & Fishes Food Pantry
-              </Typography>
-                        <ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWYwmBTiq3oARGP5JSJODZQM", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-            secondary={
-              <React.Fragment>
-                <Typography component="span">
-                <b>Hours</b>: 9:30am - 11:30am (Mon, Wed, Fri only)
-                </Typography>
-                <Typography>
-                <b>Address</b>: 1984 Sunset Cliffs Blvd, San Diego, CA, 92107
-                </Typography>
-              
-              </React.Fragment>
-            }
-          />
-        </ListItem>
-        <ListItem disableGutters button alignItems="flex-start" style = {{padding: 6, paddingLeft: 19, width: 380}} onClick={() => this.handleClick("ChIJWz80xaf424AR6GqEP_YkCXY", 1)}>
-          <ListItemText
-            primary=
-              {<div><Typography variant="h6">
-                Feeding San Diego
-              </Typography>
-                        <ListItemSecondaryAction style={{top:23}}>
-            <IconButton aria-label="Info" onClick={() => this.handleClick("ChIJWz80xaf424AR6GqEP_YkCXY", 0)}>
-              <InfoIcon />
-            </IconButton>
-          </ListItemSecondaryAction></div>}
-            secondary={
-              <React.Fragment>
-                <Typography component="span">
-                <b>Hours</b>: 8:00am - 4:30pm 
-                </Typography>
-                <Typography>
-                <b>Address</b>: 9455 Waples St #135, San Diego, CA 92121
-                </Typography>
-              
-              </React.Fragment>
-            }
-          />
-        </ListItem>
+              secondary={
+                <React.Fragment>
+                  <Typography component="span" >
+                  <b>Hours</b>: {row.hours}
+                  </Typography>
+                  <Typography>
+                  <b>Address</b>: {row.address}
+                  </Typography>
+                
+                
+                </React.Fragment>
+              }
+            />
+          </ListItem>
+        ))}
       </List>
+    </div>
 
-      <div style={{paddingTop: 60, paddingLeft:20}}>
-            
+{
+  //This is where the back to home button is created
+}
 
+    <div style={{paddingTop: 60}}>   
+      <Button
+        variant="contained"
+        color="primary"  
+        href="/"
+      >
+       Back to Home
+      </Button>
+    </div>
+  </TabContainer>
 
-            <Button
-              variant="contained"
-              color="primary"  
-              href="/"
-            >
-             Back to Home
-            </Button>
-
- 
-            </div>
-
-
-      </div>
-
-    </MuiThemeProvider>
-
-          </TabContainer>}
+  {
+    //The dialog is the information box that pops up and displays the website, phone number, rating, and most recent review
+    //This.state.data is the data that was returned from our GET request
+  }
 
         <Dialog
           open={this.state.open}
@@ -555,7 +322,7 @@ class Food extends React.Component {
             }
           </DialogTitle>
           <DialogContent>
-            {//Terrible style, need to get rid of multiple dialogContents
+            {
               this.state.gotData
               ? "Number: " + this.state.data.result.formatted_phone_number
               : "Blank"
@@ -587,6 +354,10 @@ class Food extends React.Component {
 
         </div>
         <div>
+        {
+          //This is where the google maps component is rendered
+        }
+
         <GoogleMaps ref={this.googleMapsElement}/>
         </div>
             </MuiThemeProvider>
@@ -596,4 +367,4 @@ class Food extends React.Component {
   }
 }
 
-export default withStyles(styles)(Food);
+export default withStyles(styles)(Shelter);

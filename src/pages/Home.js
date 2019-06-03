@@ -1,3 +1,7 @@
+/*
+ * Home page for our website, implements navigation to our three pages: shelter, health, and food. Uses material-ui Components for styling.
+ */
+
 import React from 'react';
 import { Link, withRouter, NavLink} from "react-router-dom";
 import classNames from 'classnames';
@@ -20,7 +24,7 @@ import IconShelter from './IconShelter.png';
 import IconHealthcare from './IconHealthcare.png';
 import IconFood from './IconFood.png';
 
-
+//css styling for this page
 const styles = theme => ({
   '@global': {
     body: {
@@ -78,12 +82,14 @@ const styles = theme => ({
   },
 });
 
+
+//the routes for our pages
 const tiers = [
   {
     title: 'Shelters',
     description: ['Fight the elements and find the nearest shelters!'],
     link:'/Shelter',
-    icon: IconShelter
+    icon: IconShelter,
   },
 
   {
@@ -92,7 +98,7 @@ const tiers = [
       'Get patched-up today at excellent clinics!'
     ],
     link:'/Health',
-    icon: IconHealthcare
+    icon: IconHealthcare,
 
   },
   {
@@ -101,7 +107,7 @@ const tiers = [
       'Find the food banks that are nearest to you!'
     ],
     link: '/Food',
-    icon: IconFood
+    icon: IconFood,
   },
 ];
 
@@ -123,6 +129,7 @@ function Pricing(props) {
         </div>
         {/* End hero unit */}
         <Grid container className={classes.root} justify="center" alignItems="flex-start" spacing={24}>
+        {/* Maps the card components and link routes for each tier. React-router handles routing*/}
           {tiers.map(tier => (
             <Grid item key={tier.title} xs={12} md='auto'>
               <Card className={classes.card}>
@@ -135,10 +142,13 @@ function Pricing(props) {
                   subheaderTypographyProps={{ align: 'center' }}
                   className={classes.cardHeader}
                 />
+              {/* The component that defines the image logo for our three pages, uses tier.icon */}
                 <CardMedia 
                 image={tier.icon}
                 style={{height: 90, width: 90, margin: 'auto'}}
                 />
+                {/* The component that defines the text the card component, uses tier.description */}
+
                 <CardContent>
                   {tier.description.map(line => (
                     <Typography variant="subtitle1" align="left" key={line}>
